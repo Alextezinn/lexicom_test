@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  web:
+    container_name: web
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
